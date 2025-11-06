@@ -55,10 +55,17 @@ public class NovelApplication {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-            .securityMatcher(EndpointRequest.toAnyEndpoint())
-            .authorizeHttpRequests(requests -> requests.anyRequest().hasRole("ENDPOINT_ADMIN"));
-        http.httpBasic();
+        http
+                // 禁用 CSRF（新写法）
+                .csrf(csrf -> csrf.disable())
+                // 仅对 Spring Boot Actuator 端点进行权限控制
+                .securityMatcher(EndpointRequest.toAnyEndpoint())
+                // 所有访问 Actuator 端点的请求，必须拥有 ENDPOINT_ADMIN 角色
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().hasRole("ENDPOINT_ADMIN")
+                )
+                // HTTP Basic 认证（新写法，消除弃用警告）
+                .httpBasic(basic -> {});
         return http.build();
     }
 

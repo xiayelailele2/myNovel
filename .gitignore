@@ -34,3 +34,5 @@ build/
 
 /logs/
 /.shardingsphere/
+/doc/sql/novel.sql/novel_data.sql
+/doc/sql/novel.sql/novel_struc.sql
