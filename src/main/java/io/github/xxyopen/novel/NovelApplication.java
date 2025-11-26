@@ -26,6 +26,7 @@ import java.util.Map;
 @Slf4j
 public class NovelApplication {
 //增加一些注释，用来测试讲变化调整至其他分支。
+    //再次增加
     public static void main(String[] args) {
         SpringApplication.run(NovelApplication.class, args);
     }
