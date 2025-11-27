@@ -30,6 +30,8 @@ public class NovelApplication {
 //第三次增加
 //第四次增加
 //第五次减少
+    //第六次增加
+    //第七次增加
     public static void main(String[] args) {
         SpringApplication.run(NovelApplication.class, args);
     }
